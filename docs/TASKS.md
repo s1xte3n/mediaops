@@ -17,14 +17,14 @@ Status: `[ ]` todo · `[x]` done · `[-]` skipped
 
 ## M2 — Azure Baseline
 
-- [ ] Create resource group `rg-mediaops-dev`
-- [ ] Create Storage Account + containers (`raw`, `thumb`) + queue (`process-queue`)
-- [ ] Create Cosmos DB account (Free Tier) + database + container
-- [ ] Create Key Vault (RBAC mode)
-- [ ] Create two user-assigned Managed Identities (`mi-backend`, `mi-worker`)
-- [ ] Assign RBAC roles (Storage, Cosmos, Key Vault)
-- [ ] Store secrets in Key Vault (`cosmos-endpoint`, `cosmos-primary-key`, `storage-connection-string`)
-- [ ] Write teardown script
+- [x] Create resource group `rg-mediaops-dev`
+- [x] Create Storage Account + containers (`raw`, `thumb`) + queue (`process-queue`)
+- [x] Create Cosmos DB account (Free Tier) + database + container
+- [x] Create Key Vault (RBAC mode)
+- [x] Create two user-assigned Managed Identities (`mi-backend`, `mi-worker`)
+- [x] Assign RBAC roles (Storage, Cosmos, Key Vault)
+- [x] Store secrets in Key Vault (`cosmos-endpoint`, `cosmos-primary-key`, `storage-connection-string`)
+- [x] Write teardown script
 - [ ] Write Bicep for all of the above (P1 — do after manual provisioning works)
 
 ---
