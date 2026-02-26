@@ -99,10 +99,29 @@ az keyvault secret set --vault-name kv-mediaops-dev --name <secret-name> --value
 
 ## Troubleshooting
 
-### Key Vault Forbidden
-You need Key Vault Secrets Officer role assigned to your user identity.
-Run: `az role assignment create --role "Key Vault Secrets Officer" --assignee "<your-object-id>" --scope "<vault-resource-id>"`
+### Key Vault Forbidden on secret set
+**Error:** `Caller is not authorized to perform action on resource... ForbiddenByRbac`
 
-### Cosmos role assignments not showing
-Cosmos data plane RBAC is separate from Azure RBAC.
-Use `az cosmosdb sql role assignment list` not `az role assignment list`.
+**Cause:** Creating a Key Vault with `--enable-rbac-authorization true` grants nobody access by default — including the creator. This is correct RBAC behaviour, not a bug.
+
+**Fix:** Assign yourself `Key Vault Secrets Officer` on the vault, then wait 1-2 minutes for propagation before retrying.
+```powershell
+az role assignment create `
+  --role "Key Vault Secrets Officer" `
+  --assignee "<your-object-id>" `
+  --scope "/subscriptions/<sub-id>/resourcegroups/rg-mediaops-dev/providers/Microsoft.KeyVault/vaults/kv-mediaops-dev"
+```
+
+### Cosmos role assignments appear empty after creation
+**Error:** `az cosmosdb sql role assignment list` returns no rows despite assignments appearing to succeed.
+
+**Cause:** Unknown — possibly a propagation delay or a silent failure on first attempt.
+
+**Fix:** Rerun the role assignment commands. Verify with `az cosmosdb sql role assignment list` after each one. Note that Cosmos data plane RBAC is a separate system from Azure RBAC — use `az cosmosdb sql role assignment` commands, not `az role assignment`.
+
+### Partition key path mangled on Windows Git Bash
+**Error:** `The partition key component definition path 'C:/Program Files/Git/ownerId' could not be accepted`
+
+**Cause:** Git Bash on Windows intercepts paths starting with `/` and expands them to absolute Windows paths before the Azure CLI sees them.
+
+**Fix:** Use PowerShell instead of Git Bash for all Azure CLI commands on Windows. Alternatively prefix the path with `//` in Git Bash (e.g. `//ownerId`) to suppress path expansion — but PowerShell is the better long-term choice.
