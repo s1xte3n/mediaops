@@ -125,3 +125,22 @@ az role assignment create `
 **Cause:** Git Bash on Windows intercepts paths starting with `/` and expands them to absolute Windows paths before the Azure CLI sees them.
 
 **Fix:** Use PowerShell instead of Git Bash for all Azure CLI commands on Windows. Alternatively prefix the path with `//` in Git Bash (e.g. `//ownerId`) to suppress path expansion — but PowerShell is the better long-term choice.
+
+### Functions v4 runtime not finding functions
+**Symptom:** `No job functions found` despite function code existing.
+
+**Cause 1:** Missing `main` field in `package.json`. The v4 runtime uses `main` to find the entry point that registers functions via `app.http(...)`.
+**Fix:** Add `"main": "functions/http/index.js"` to `package.json`.
+
+**Cause 2:** `function.json` files (v3 model) are ignored by the v4 runtime.
+**Fix:** Use code-based registration (`app.http(...)` from `@azure/functions`) instead.
+
+### NestJS worker crashes on first request
+**Symptom:** `Language Worker Process exited. Pid=XXXXX` with code 1.
+
+**Cause:** Missing peer dependencies. NestJS `ValidationPipe` requires `class-validator` and `class-transformer`.
+**Fix:** `npm install class-validator class-transformer`
+
+### @nestjs/azure-func-http incompatible with NestJS v11
+**Symptom:** `ERESOLVE unable to resolve dependency tree` — peer dep requires NestJS ^10.
+**Fix:** Pin NestJS to v10. See ADR-007.
