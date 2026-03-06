@@ -57,3 +57,11 @@
 **Why:** Access Policies are a legacy model. RBAC mode lets you manage Key Vault permissions with the same `az role assignment` commands used everywhere else in Azure. Cleaner, auditable, consistent.
 
 **Tradeoff:** Slightly more Bicep to assign the role, but worth it.
+
+## ADR-007: NestJS v10 (not v11)
+
+**Decision:** Pin NestJS to v10 across the backend.
+
+**Why:** `@nestjs/azure-func-http` (the adapter between NestJS and Azure Functions HTTP trigger) declares peer dependency on NestJS `^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0` — it does not support v11 yet. Rather than writing a custom adapter, we downgrade to v10 which is still actively maintained and is what most Azure documentation targets.
+
+**Tradeoff:** We're one major version behind. Revisit when `@nestjs/azure-func-http` publishes v11 support.
