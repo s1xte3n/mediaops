@@ -1,0 +1,18 @@
+{
+    "bindings": [
+      {
+        "authLevel": "anonymous",
+        "type": "httpTrigger",
+        "direction": "in",
+        "name": "req",
+        "route": "{*segments}",
+        "methods": ["get", "post", "put", "patch", "delete", "head", "options"]
+      },
+      {
+        "type": "http",
+        "direction": "out",
+        "name": "res"
+      }
+    ],
+    "scriptFile": "../../../dist/functions/http/index.js"
+  }

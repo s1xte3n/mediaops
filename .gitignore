@@ -32,3 +32,5 @@ npm-debug.log*
 
 # Azure CLI
 .azure/
+
+local.settings.json
