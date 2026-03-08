@@ -31,17 +31,17 @@ Status: `[ ]` todo · `[x]` done · `[-]` skipped
 
 ## M3 — API (NestJS on Functions)
 
-- [ ] Scaffold NestJS app in `apps/backend`
-- [ ] Add Azure Functions HTTP adapter
-- [ ] Implement `GET /api/healthz`
-- [ ] Implement `POST /api/media` (create record, Cosmos write)
+- [x] Scaffold NestJS app in `apps/backend`
+- [x] Add Azure Functions HTTP adapter
+- [x] Implement `GET /api/healthz`
+- [x] Implement `POST /api/media` (create record, Cosmos write)
 - [ ] Implement `PUT /api/media/:id/content` (stream to Blob, update Cosmos)
-- [ ] Implement `GET /api/media` (list, paged)
-- [ ] Implement `GET /api/media/:id` (single item)
+- [x] Implement `GET /api/media` (list, paged)
+- [x] Implement `GET /api/media/:id` (single item)
 - [ ] Auth: parse SWA `x-ms-client-principal` header → derive ownerId
 - [ ] Key Vault integration: fetch secrets at startup via Managed Identity
 - [ ] Unit tests for service layer
-- [ ] Local dev: `.env`-based config
+- [x] Local dev: `.env`-based config
 
 ---
 
