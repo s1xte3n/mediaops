@@ -7,11 +7,42 @@
 
 ## Initial Deployment
 
-### 1. Login
+### 1.1 Login
 ```powershell
 az login
 az account set --subscription "<your-subscription-id>"
 ```
+
+## Local Development
+
+### 1.2 Backend (NestJS on Functions)
+
+1. Fill in `apps/backend/local.settings.json` with real Azure values:
+   - `COSMOS_ENDPOINT` — from `az cosmosdb show --query documentEndpoint`
+   - `COSMOS_PRIMARY_KEY` — from `az cosmosdb keys list --query primaryMasterKey`
+   - `STORAGE_CONNECTION_STRING` — from `az storage account show-connection-string`
+   - Leave `KEY_VAULT_URI` empty (local dev uses env vars directly)
+
+2. Build and start:
+```powershell
+cd apps/backend
+npm run build
+npm start
+```
+
+3. Test:
+```powershell
+curl http://localhost:7071/api/healthz
+curl -X POST http://localhost:7071/api/media `
+  -H "Content-Type: application/json" `
+  -H "x-dev-owner-id: user-123" `
+  -d '{"filename":"cat.png","contentType":"image/png"}'
+```
+
+### 1.3 Auth stub for local dev
+
+Production auth uses the SWA `x-ms-client-principal` header.
+Locally, pass `x-dev-owner-id: <any-string>` to set the owner identity without real auth.
 
 ### 2. Resource Group
 ```powershell

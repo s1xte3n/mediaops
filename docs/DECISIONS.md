@@ -65,3 +65,21 @@
 **Why:** `@nestjs/azure-func-http` (the adapter between NestJS and Azure Functions HTTP trigger) declares peer dependency on NestJS `^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0` — it does not support v11 yet. Rather than writing a custom adapter, we downgrade to v10 which is still actively maintained and is what most Azure documentation targets.
 
 **Tradeoff:** We're one major version behind. Revisit when `@nestjs/azure-func-http` publishes v11 support.
+
+## ADR-008: Custom Azure Functions v4 HTTP wrapper (no third-party adapter)
+
+**Decision:** Write a minimal custom wrapper that bridges the Azure Functions v4 HTTP model to NestJS/Express, instead of using `@nestjs/azure-func-http`.
+
+**Why:** `@nestjs/azure-func-http` was built for the Functions v3 programming model which used `function.json` for function registration. The Functions v4 runtime uses code-based registration (`app.http(...)`) and ignores `function.json` entirely. The adapter is incompatible with v4 and has no published v4 support.
+
+**How it works:** The wrapper registers one catch-all `app.http()` function. On each invocation it boots NestJS (cached after first boot), converts the v4 `HttpRequest` into a Node.js `IncomingMessage`, pipes it through Express, captures the response via a mock `ServerResponse`, and returns it as a v4 `HttpResponseInit`.
+
+**Tradeoff:** More code to own and maintain vs. a third-party adapter. The wrapper is ~50 lines and well-understood, which is acceptable.
+
+## ADR-009: KEY_VAULT_URI empty for local development
+
+**Decision:** When `KEY_VAULT_URI` is empty or unset, `ConfigService` falls back to environment variables directly. Key Vault is only used in production where Managed Identity is available.
+
+**Why:** `DefaultAzureCredential` cannot authenticate via Managed Identity on a local dev machine. Attempting to hit Key Vault locally causes silent worker crashes that are hard to debug.
+
+**Tradeoff:** Developers must maintain a `local.settings.json` with real values. This file is gitignored and never committed.
