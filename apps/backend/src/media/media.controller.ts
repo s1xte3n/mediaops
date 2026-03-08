@@ -2,13 +2,19 @@ import {
     Controller,
     Post,
     Get,
+    Put,
     Param,
     Body,
     Query,
     Headers,
     HttpCode,
     HttpStatus,
+    UseInterceptors,
+    UploadedFile,
+    BadRequestException,
 } from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { memoryStorage } from 'multer';
 import { MediaService } from './media.service';
 import { CreateMediaDto } from './dto/create-media-dto';
 
@@ -52,6 +58,29 @@ export class MediaController {
                 contentType: item.contentType,
                 maxBytes: 10 * 1024 * 1024 // 10MB
             },
+        };
+    }
+
+    @Put(':id/content')
+    @UseInterceptors(
+        FileInterceptor('file', { storage: memoryStorage() }),
+    )
+    async uploadContent(
+        @Param('id') id: string,
+        @Headers() headers: Record<string, string>,
+        @UploadedFile() file: Express.Multer.File,
+    ) {
+        if (!file) {
+            throw new BadRequestException('No file provided in field "file"');
+        }
+
+        const ownerId = getOwnerIdFromHeaders(headers);
+        const item = await this.media.uploadContent(id, ownerId, file);
+
+        return {
+            id: item.id,
+            status: item.status,
+            rawBlobPath: item.rawBlobPath,
         };
     }
 
