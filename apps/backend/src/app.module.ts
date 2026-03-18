@@ -4,6 +4,7 @@ import { CosmosModule } from './cosmos/cosmos.module';
 import { StorageModule } from './storage/storage.module';
 import { HealthModule } from './health/health.module';
 import { MediaModule } from './media/media.module';
+import { EventBridgeModule } from './eventbridge/eventbridge.module';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { MediaModule } from './media/media.module';
     StorageModule,
     HealthModule,
     MediaModule,
+    EventBridgeModule,
   ],
 })
 export class AppModule {}
