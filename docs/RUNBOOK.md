@@ -172,6 +172,24 @@ az role assignment create `
 **Cause:** Missing peer dependencies. NestJS `ValidationPipe` requires `class-validator` and `class-transformer`.
 **Fix:** `npm install class-validator class-transformer`
 
+### Storage Blob list permission denied for CLI user
+**Error:** `You do not have the required permissions needed to perform this operation`
+
+**Cause:** Only managed identities were assigned Storage Blob roles during initial setup. Your CLI user identity was not included.
+
+**Fix:** Assign yourself `Storage Blob Data Reader` for read operations:
+```powershell
+$myId = az ad signed-in-user show --query id --output tsv
+az role assignment create `
+  --role "Storage Blob Data Reader" `
+  --assignee $myId `
+  --scope "/subscriptions/<sub-id>/resourcegroups/rg-mediaops-dev/providers/Microsoft.Storage/storageAccounts/stmediaopsdev"
+```
+
+### $id variable empty in PowerShell
+**Cause:** PowerShell variables don't persist across sessions or windows.
+**Fix:** Always create a new media record and capture `$id` in the same session before uploading.
+
 ### @nestjs/azure-func-http incompatible with NestJS v11
 **Symptom:** `ERESOLVE unable to resolve dependency tree` — peer dep requires NestJS ^10.
 **Fix:** Pin NestJS to v10. See ADR-007.

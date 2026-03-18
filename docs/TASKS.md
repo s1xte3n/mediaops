@@ -35,11 +35,11 @@ Status: `[ ]` todo · `[x]` done · `[-]` skipped
 - [x] Add Azure Functions HTTP adapter
 - [x] Implement `GET /api/healthz`
 - [x] Implement `POST /api/media` (create record, Cosmos write)
-- [ ] Implement `PUT /api/media/:id/content` (stream to Blob, update Cosmos)
+- [x] Implement `PUT /api/media/:id/content` (stream to Blob, update Cosmos)
 - [x] Implement `GET /api/media` (list, paged)
 - [x] Implement `GET /api/media/:id` (single item)
 - [ ] Auth: parse SWA `x-ms-client-principal` header → derive ownerId
-- [ ] Key Vault integration: fetch secrets at startup via Managed Identity
+- [x] Key Vault integration: fetch secrets at startup via Managed Identity
 - [ ] Unit tests for service layer
 - [x] Local dev: `.env`-based config
 
