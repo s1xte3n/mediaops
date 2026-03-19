@@ -1,0 +1,6 @@
+<step title="Incoming Request" date="2026-03-18T23:31:41.067" instance="67cfd0" url="/logstream" method="GET" type="request" pid="7824,2,23" Accept-Encoding="identity" Authorization="Bea..." Host="func-mediaops-api-dev.scm.azurewebsites.net" User-Agent="AZURECLI/2.80.0 (MSI)" x-ms-client-request-id="713a628b-2322-11f1-b5d8-00e04c239987" X-ARR-LOG-ID="713a628b-2322-11f1-b5d8-00e04c239987" CLIENT-IP="41.193.212.4:42837" X-SITE-DEPLOYMENT-ID="func-mediaops-api-dev" WAS-DEFAULT-HOSTNAME="func-mediaops-api-dev.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/logstream" >
+  <step title="Cleanup Xml Logs" date="2026-03-18T23:31:41.114" /><!-- duration: 31ms -->
+  <step title="LogStreamHandler.BeginProcessRequest" date="2026-03-18T23:31:41.176" >
+    <step title="LockFile &apos;C:\home\site\locks\hooks.lock&apos; acquired" date="2026-03-18T23:31:41.379" /><!-- duration: 31ms -->
+    <step title="LockFile &apos;C:\home\site\locks\hooks.lock&apos; released" date="2026-03-18T23:31:41.567" /><!-- duration: 31ms -->
+  </step><!-- duration: 484ms -->

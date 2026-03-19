@@ -1,0 +1,35 @@
+<step title="BackgroundTrace" date="2026-03-18T23:28:55.819" instance="44751d" url="synctriggers-operation" method="POST" >
+  <step title="Cleanup Xml Logs" date="2026-03-18T23:28:55.850" /><!-- duration: 31ms -->
+  <step title="Updating shutdown sentinel last write time" date="2026-03-18T23:28:55.897" SemaphoreCount="6" /><!-- duration: 31ms -->
+  <step title="Delaying &apos;00:01:00&apos; for Functions site to restart." date="2026-03-18T23:28:55.944" /><!-- duration: 31ms -->
+  <step title="Begin HttpPost https://func-mediaops-api-dev.azurewebsites.net/admin/host/synctriggers, x-ms-request-id: e97973d6-2320-11f1-b3ce-00e04c239987" date="2026-03-18T23:29:56.020" /><!-- duration: 31ms -->
+  <step title="End HttpPost, status: ServiceUnavailable" date="2026-03-18T23:31:35.676" /><!-- duration: 31ms -->
+  <step title="Begin HttpPost https://func-mediaops-api-dev.azurewebsites.net/admin/host/synctriggers, x-ms-request-id: e97973d6-2320-11f1-b3ce-00e04c239987" date="2026-03-18T23:31:36.763" /><!-- duration: 16ms -->
+  <step title="End HttpPost, status: ServiceUnavailable" date="2026-03-18T23:31:36.841" /><!-- duration: 16ms -->
+  <step title="Begin HttpPost https://func-mediaops-api-dev.azurewebsites.net/admin/host/synctriggers, x-ms-request-id: e97973d6-2320-11f1-b3ce-00e04c239987" date="2026-03-18T23:31:37.899" /><!-- duration: 16ms -->
+  <step title="End HttpPost, status: ServiceUnavailable" date="2026-03-18T23:31:37.977" /><!-- duration: 16ms -->
+  <step title="Syncing function triggers by calling the functions runtime site failed. System.Net.Http.HttpRequestException: Response status code does not indicate success: 503 (Service Unavailable).
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at Kudu.Core.Helpers.PostDeploymentHelper.&lt;PostAsync&gt;d__49.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Kudu.Core.Helpers.PostDeploymentHelper.&lt;&gt;c__DisplayClass38_0.&lt;&lt;TryFunctionsRuntimeSyncTriggers&gt;b__1&gt;d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Kudu.Core.Infrastructure.OperationManager.&lt;&gt;c__DisplayClass4_0.&lt;&lt;AttemptAsync&gt;b__0&gt;d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Kudu.Core.Infrastructure.OperationManager.&lt;AttemptAsync&gt;d__5`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Kudu.Core.Helpers.PostDeploymentHelper.&lt;TryFunctionsRuntimeSyncTriggers&gt;d__38.MoveNext()" date="2026-03-18T23:31:38.024" /><!-- duration: 31ms -->
+  <step title="Attempting to perform settriggers call directly." date="2026-03-18T23:31:38.071" /><!-- duration: 31ms -->
+  <step title="Begin HttpPost https://func-mediaops-api-dev.scm.azurewebsites.net/operations/settriggers, x-ms-request-id: e97973d6-2320-11f1-b3ce-00e04c239987" date="2026-03-18T23:31:38.243" /><!-- duration: 31ms -->
+  <step title="End HttpPost, status: OK" date="2026-03-18T23:31:38.511" /><!-- duration: 31ms -->
+  <step title="Syncing 0 function triggers with payload size 15 bytes successful." date="2026-03-18T23:31:38.558" /><!-- duration: 31ms -->
+  <step title="Deleting shutdown sentinel file" date="2026-03-18T23:31:38.605" SemaphoreCount="8" /><!-- duration: 31ms -->
+</step><!-- duration: 162833ms -->

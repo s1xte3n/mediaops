@@ -1,0 +1,9 @@
+<step title="BackgroundTrace" date="2026-03-18T22:14:34.077" instance="2e8be5" url="synctriggers-operation" method="POST" >
+  <step title="Cleanup Xml Logs" date="2026-03-18T22:14:34.108" /><!-- duration: 31ms -->
+  <step title="Updating shutdown sentinel last write time" date="2026-03-18T22:14:34.155" SemaphoreCount="6" /><!-- duration: 63ms -->
+  <step title="Delaying &apos;00:01:00&apos; for Functions site to restart." date="2026-03-18T22:14:34.249" /><!-- duration: 16ms -->
+  <step title="Begin HttpPost https://func-mediaops-api-dev.azurewebsites.net/admin/host/synctriggers, x-ms-request-id: c0d90f45-2317-11f1-abd4-00e04c239987" date="2026-03-18T22:15:34.299" /><!-- duration: 31ms -->
+  <step title="End HttpPost, status: OK" date="2026-03-18T22:15:35.059" /><!-- duration: 31ms -->
+  <step title="Syncing function triggers by calling the functions runtime site successful." date="2026-03-18T22:15:35.106" /><!-- duration: 31ms -->
+  <step title="Deleting shutdown sentinel file" date="2026-03-18T22:15:35.184" SemaphoreCount="8" /><!-- duration: 16ms -->
+</step><!-- duration: 61138ms -->

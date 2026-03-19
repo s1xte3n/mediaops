@@ -1,0 +1,101 @@
+<step title="BackgroundTrace" date="2026-03-18T23:19:54.685" instance="44751d" url="/api/zipdeploy" method="POST" >
+  <step title="Updating shutdown sentinel last write time" date="2026-03-18T23:19:54.748" SemaphoreCount="7" /><!-- duration: 31ms -->
+  <step title="LockFile &apos;C:\home\site\locks\deployments.lock&apos; acquired" date="2026-03-18T23:19:54.810" /><!-- duration: 31ms -->
+  <step title="Creating temporary deployment" date="2026-03-18T23:19:54.857" /><!-- duration: 250ms -->
+  <step title="Performing fetch based deployment" date="2026-03-18T23:19:55.138" >
+    <step title="Fetching changes." date="2026-03-18T23:19:55.388" /><!-- duration: 16ms -->
+    <step title="Starting LocalZipHandler" date="2026-03-18T23:19:55.435" /><!-- duration: 31ms -->
+    <step title="Cleaning up temp folders from previous zip deployments and extracting pushed zip file C:\local\Temp\zipdeploy\bvamzqxg.zip (0.12 MB) to C:\local\Temp\zipdeploy\extracted" date="2026-03-18T23:19:55.592" /><!-- duration: 16ms -->
+    <step title="Cleaning up temp folders from previous zip deployments and extracting pushed zip file C:\local\Temp\zipdeploy\bvamzqxg.zip (0.12 MB) to C:\local\Temp\zipdeploy\extracted" date="2026-03-18T23:19:55.623" >
+      <step title="Extracting 61 entries to C:\local\Temp\zipdeploy\extracted directory" date="2026-03-18T23:19:55.701" >
+        <step title="Extracting to C:\local\Temp\zipdeploy\extracted\config\config.module.d.ts ..." date="2026-03-18T23:19:55.717" /><!-- duration: 31ms -->
+        <step title="Extracting to C:\local\Temp\zipdeploy\extracted\config\config.module.js ..." date="2026-03-18T23:19:55.779" /><!-- duration: 39ms -->
+        <step title="Extracting to C:\local\Temp\zipdeploy\extracted\config\config.module.js.map ..." date="2026-03-18T23:19:55.848" /><!-- duration: 16ms -->
+        <step title="Extracting to C:\local\Temp\zipdeploy\extracted\config\config.service.d.ts ..." date="2026-03-18T23:19:55.895" /><!-- duration: 16ms -->
+        <step title="Extracting to C:\local\Temp\zipdeploy\extracted\config\config.service.js ..." date="2026-03-18T23:19:55.941" /><!-- duration: 31ms -->
+        <step title="Omitting extracting file traces ..." date="2026-03-18T23:19:55.988" /><!-- duration: 31ms -->
+        <step title="Extracting to C:\local\Temp\zipdeploy\extracted\main.d.ts ..." date="2026-03-18T23:19:56.082" /><!-- duration: 31ms -->
+        <step title="Extracting to C:\local\Temp\zipdeploy\extracted\main.js ..." date="2026-03-18T23:19:56.145" /><!-- duration: 16ms -->
+        <step title="Extracting to C:\local\Temp\zipdeploy\extracted\main.js.map ..." date="2026-03-18T23:19:56.191" /><!-- duration: 16ms -->
+        <step title="Extracting to C:\local\Temp\zipdeploy\extracted\package.json ..." date="2026-03-18T23:19:56.238" /><!-- duration: 16ms -->
+        <step title="Extracting to C:\local\Temp\zipdeploy\extracted\tsconfig.build.tsbuildinfo ..." date="2026-03-18T23:19:56.285" /><!-- duration: 16ms -->
+      </step><!-- duration: 631ms -->
+    </step><!-- duration: 725ms -->
+    <step title="Before sending BuildRequestReceived status to /api/updatedeploystatus" date="2026-03-18T23:19:56.379" /><!-- duration: 16ms -->
+    <step title="DeploymentManager.Deploy(id:588f282c88574c578cb90b4a3a5e09e4)" date="2026-03-18T23:19:56.426" >
+      <step title="Collecting changeset information" date="2026-03-18T23:19:56.473" /><!-- duration: 172ms -->
+      <step title="Updating submodules" date="2026-03-18T23:19:56.660" >
+        <step title="Updating submodules." date="2026-03-18T23:19:56.863" /><!-- duration: 16ms -->
+      </step><!-- duration: 250ms -->
+      <step title="Preparing deployment for commit id &apos;588f282c88&apos;." date="2026-03-18T23:19:57.098" /><!-- duration: 16ms -->
+      <step title="Determining deployment builder" date="2026-03-18T23:19:57.301" >
+        <step title="UseMSBuild16: True" date="2026-03-18T23:19:57.332" /><!-- duration: 31ms -->
+        <step title="Builder is FunctionBasicBuilder" date="2026-03-18T23:19:57.411" /><!-- duration: 31ms -->
+      </step><!-- duration: 157ms -->
+      <step title="Copying SSH keys" date="2026-03-18T23:19:57.552" /><!-- duration: 47ms -->
+      <step title="Building" date="2026-03-18T23:19:57.614" >
+        <step title="Generating deployment script." date="2026-03-18T23:19:57.833" /><!-- duration: 16ms -->
+        <step title="Generating deployment script" date="2026-03-18T23:19:57.880" >
+          <step title="Using the following command to generate deployment script: &apos;azure site deploymentscript -y --no-dot-deployment -r &quot;C:\local\Temp\zipdeploy\extracted&quot; -o &quot;C:\home\site\deployments\tools&quot; --functionApp --sitePath &quot;C:\local\Temp\zipdeploy\extracted&quot;&apos;." date="2026-03-18T23:19:58.020" /><!-- duration: 31ms -->
+          <step title="Executing external process" date="2026-03-18T23:19:58.083" type="process" path="starter.cmd" arguments="&quot;C:\Program Files (x86)\SiteExtensions\Kudu\2025.11.1.1\bin\node_modules\.bin\kuduscript.cmd&quot; -y --no-dot-deployment -r &quot;C:\local\Temp\zipdeploy\extracted&quot; -o &quot;C:\home\site\deployments\tools&quot; --functionApp --sitePath &quot;C:\local\Temp\zipdeploy\extracted&quot;" >
+            <step title="Generating deployment script for function App" date="2026-03-18T23:19:58.479" /><!-- duration: 16ms -->
+            <step title="Generated deployment script files" date="2026-03-18T23:19:58.541" /><!-- duration: 31ms -->
+          </step><!-- duration: 521ms -->
+          <step title="Saved cached version of the deployment script for command -y --no-dot-deployment -r &quot;C:\local\Temp\zipdeploy\extracted&quot; -o &quot;C:\home\site\deployments\tools&quot; --functionApp --sitePath &quot;C:\local\Temp\zipdeploy\extracted&quot;" date="2026-03-18T23:19:58.651" /><!-- duration: 31ms -->
+        </step><!-- duration: 818ms -->
+        <step title="Running deployment command..." date="2026-03-18T23:19:59.135" /><!-- duration: 16ms -->
+        <step title="Command: &quot;C:\home\site\deployments\tools\deploy.cmd&quot;" date="2026-03-18T23:19:59.197" /><!-- duration: 16ms -->
+        <step title="Executing external process" date="2026-03-18T23:19:59.244" type="process" path="starter.cmd" arguments="&quot;C:\home\site\deployments\tools\deploy.cmd&quot;" >
+          <step title="Handling function App deployment." date="2026-03-18T23:20:00.169" /><!-- duration: 47ms -->
+          <step title="Not using funcpack because SCM_USE_FUNCPACK is not set to 1" date="2026-03-18T23:20:00.263" /><!-- duration: 31ms -->
+          <step title="Installing function extensions from nuget" date="2026-03-18T23:20:00.341" /><!-- duration: 31ms -->
+          <step title="Creating app_offline.htm" date="2026-03-18T23:20:00.419" /><!-- duration: 16ms -->
+          <step title="KuduSync.NET from: &apos;C:\local\Temp\zipdeploy\extracted&apos; to: &apos;C:\home\site\wwwroot&apos;" date="2026-03-18T23:20:00.481" /><!-- duration: 31ms -->
+          <step title="Deleting app_offline.htm" date="2026-03-18T23:20:00.559" /><!-- duration: 31ms -->
+          <step title="Restoring npm packages in &quot;C:\home\site\wwwroot&quot;" date="2026-03-18T23:20:00.638" /><!-- duration: 16ms -->
+          <step title="npm warn config production Use `--omit=dev` instead." date="2026-03-18T23:20:01.638" /><!-- duration: 16ms -->
+          <step title="Cpu: node(5056,29.563s)+cmd(5284,0.078s)=total(29.641s)" date="2026-03-18T23:21:01.739" /><!-- duration: 16ms -->
+          <step title="starter.cmd: no io activity for 60s, prev-cpu=-1.000s, current-cpu=29.641s" date="2026-03-18T23:21:01.786" /><!-- duration: 16ms -->
+          <step title="Cpu: node(5056,40.688s)+cmd(5284,0.078s)=total(40.766s)" date="2026-03-18T23:22:02.329" /><!-- duration: 31ms -->
+          <step title="starter.cmd: no io activity for 121s, prev-cpu=29.641s, current-cpu=40.766s" date="2026-03-18T23:22:02.391" /><!-- duration: 31ms -->
+          <step title="Cpu: node(5056,49.328s)+cmd(5284,0.078s)=total(49.406s)" date="2026-03-18T23:23:02.782" /><!-- duration: 47ms -->
+          <step title="starter.cmd: no io activity for 181s, prev-cpu=40.766s, current-cpu=49.406s" date="2026-03-18T23:23:02.844" /><!-- duration: 16ms -->
+          <step title="Cpu: node(5056,56.906s)+cmd(5284,0.078s)=total(56.984s)" date="2026-03-18T23:24:03.241" /><!-- duration: 31ms -->
+          <step title="starter.cmd: no io activity for 242s, prev-cpu=49.406s, current-cpu=56.984s" date="2026-03-18T23:24:03.287" /><!-- duration: 31ms -->
+          <step title="Cpu: node(5056,64.234s)+cmd(5284,0.078s)=total(64.313s)" date="2026-03-18T23:25:03.725" /><!-- duration: 31ms -->
+          <step title="starter.cmd: no io activity for 302s, prev-cpu=56.984s, current-cpu=64.313s" date="2026-03-18T23:25:03.772" /><!-- duration: 31ms -->
+          <step title="Cpu: node(5056,70.359s)+cmd(5284,0.078s)=total(70.438s)" date="2026-03-18T23:26:04.105" /><!-- duration: 31ms -->
+          <step title="starter.cmd: no io activity for 363s, prev-cpu=64.313s, current-cpu=70.438s" date="2026-03-18T23:26:04.152" /><!-- duration: 31ms -->
+          <step title="Cpu: node(5056,75.719s)+cmd(5284,0.078s)=total(75.797s)" date="2026-03-18T23:27:04.588" /><!-- duration: 109ms -->
+          <step title="starter.cmd: no io activity for 423s, prev-cpu=70.438s, current-cpu=75.797s" date="2026-03-18T23:27:04.729" /><!-- duration: 16ms -->
+          <step title="Cpu: node(5056,78.703s)+cmd(5284,0.078s)=total(78.781s)" date="2026-03-18T23:28:05.277" /><!-- duration: 63ms -->
+          <step title="starter.cmd: no io activity for 484s, prev-cpu=75.797s, current-cpu=78.781s" date="2026-03-18T23:28:05.371" /><!-- duration: 16ms -->
+          <step title="npm notice" date="2026-03-18T23:28:50.897"           <step title="added 210 packages, and audited 211 packages in 9m" date="2026-03-18T23:28:50.913" /><!-- duration: 16ms -->
+/><!-- duration: 16ms -->
+          <step title="npm notice New major version of npm available! 10.9.4 -&gt; 11.12.0" date="2026-03-18T23:28:50.960" /><!-- duration: 31ms -->
+          <step title="54 packages are looking for funding" date="2026-03-18T23:28:51.007"           <step title="npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.12.0" date="2026-03-18T23:28:51.022" /><!-- duration: 31ms -->
+/><!-- duration: 47ms -->
+          <step title="  run `npm fund` for details" date="2026-03-18T23:28:51.100" /><!-- duration: 16ms -->
+pm notice To update run: npm install -g npm@11.12.0" date="2026-03-18T23:28:51.116" /><!-- duration: 31ms -->
+          <step title="npm notice" date="2026-03-18T23:28:51.194" >
+          <step title="5 vulnerabilities (2 moderate, 3 high)" date="2026-03-18T23:28:51.210" /><!-- duration: 31ms -->
+          <step title="To address issues that do not require attention, run:" date="2026-03-18T23:28:51.335" /><!-- duration: 31ms -->
+          <step title="  npm audit fix" date="2026-03-18T23:28:51.397" /><!-- duration: 31ms -->
+          <step title="To address all issues (including breaking changes), run:" date="2026-03-18T23:28:51.491" /><!-- duration: 31ms -->
+          <step title="  npm audit fix --force" date="2026-03-18T23:28:51.569" /><!-- duration: 16ms -->
+          <step title="Run `npm audit` for details." date="2026-03-18T23:28:51.663" /><!-- duration: 16ms -->
+          <step title="Finished successfully." date="2026-03-18T23:28:52.764" /><!-- duration: 31ms -->
+        </step><!-- duration: 533566ms -->
+        <step title="Running post deployment command(s)..." date="2026-03-18T23:28:53.373" /><!-- duration: 31ms -->
+        <step title="Triggering recycle (preview mode disabled)." date="2026-03-18T23:28:53.639" /><!-- duration: 47ms -->
+        <step title="Ignoring FS watcher based recycle request as this is a classic Windows app." date="2026-03-18T23:28:53.717" /><!-- duration: 16ms -->
+        <step title="Deployment successful. DEPLOYMENTINFO: deploymentPath = Functions App ZipDeploy. Extract zip. Remote build. , deployer = az_cli_functions, os = windows, sku = Dynamic, language = node, siteName = func-mediaops-api-dev, slotName = Production, siteHostName = func-mediaops-api-dev.azurewebsites.net, deploymentStatus = Success" date="2026-03-18T23:28:54.178" /><!-- duration: 31ms -->
+      </step><!-- duration: 537361ms -->
+    </step><!-- duration: 538581ms -->
+    <step title="Cleaning up temp files" date="2026-03-18T23:28:55.022" /><!-- duration: 31ms -->
+    <step title="Begin HttpPost https://func-mediaops-api-dev.scm.azurewebsites.net/operations/settriggers, x-ms-request-id: e97973d6-2320-11f1-b3ce-00e04c239987" date="2026-03-18T23:28:55.147" /><!-- duration: 16ms -->
+    <step title="End HttpPost, status: OK" date="2026-03-18T23:28:55.694" /><!-- duration: 16ms -->
+    <step title="Scheduling background sync triggers after delay" date="2026-03-18T23:28:55.741" /><!-- duration: 31ms -->
+  </step><!-- duration: 540774ms -->
+  <step title="LockFile &apos;C:\home\site\locks\deployments.lock&apos; released" date="2026-03-18T23:28:55.944" /><!-- duration: 16ms -->
+</step><!-- duration: 541321ms -->
