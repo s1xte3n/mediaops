@@ -33,11 +33,14 @@ jobs:
 
       - name: Build
         working-directory: apps/backend
-        run: npm run build
+        run: npx nest build
 
-      - name: Copy deploy package.json
+      - name: Prepare dist
         working-directory: apps/backend
-        run: cp package.deploy.json dist/package.json
+        run: |
+          cp host.json dist/host.json
+          cp package.deploy.json dist/package.json
+          echo '{"IsEncrypted":false,"Values":{"FUNCTIONS_WORKER_RUNTIME":"node","AzureWebJobsFeatureFlags":"EnableWorkerIndexing"}}' > dist/local.settings.json
 
       - name: Login to Azure
         uses: azure/login@v2
